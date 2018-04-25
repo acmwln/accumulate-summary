@@ -89,4 +89,14 @@ Hi you user name! You've successfully authenticated, but GitHub does not provide
 
 下面附上一个超链接---[git 配置多个SSH-Key](https://blog.csdn.net/dqchouyang/article/details/54898910)
 
+tips:我发现每次在github上创建一个新的仓库，就需要重新加入私钥,这个我也不知道为什么，暂时先这样操作吧：（疑惑脸） 
+
+1. `$ ssh-add ~/.ssh/id_rsa_personage`
+
+2. `git remote add origin git@github.com:(用户名)/版本库名`  
+
+3. `git remote -v `     [^_^]:查看远程连接库
+
+4. `git push -u origin master`
+
 ....同上
