@@ -1,12 +1,14 @@
 ## 1、清除git的全局设置
 新安装git跳过这一步。如果对git设置过的user.name和user.email，类似这种设置过：
 
-$ git config --global user.name "your_name"
+$ git config --global user.name "your_name"  
+
 $ git config --global user.email  "your_email"
 
 首先删除该设置， 不然会冲突的。取消全局设置方法：
 
-$ git config --global --unset user.name "your_name"
+$ git config --global --unset user.name "your_name"  
+
 $ git config --global --unset user.email "your_email"
 
 如果一台电脑两个账户，自己亲测了下，不清除git的全局设置也可，关键步骤在添加并识别新的SSH key秘钥，也就是下面的3，请往下面读
@@ -29,7 +31,8 @@ $ ssh-keygen -t rsa -C "your_email"
   <font color=#0099ff>Agent pid 59566</font>
 `$ ssh-agent bash`
 `$ ssh-add ~/.ssh/id_rsa_personage`
-`$ ssh-add ~/.ssh/id_rsa_company`
+`$ ssh-add ~/.ssh/id_rsa_company`  
+
 <b>比如:需要分别添加id_rsa_personage和id_rsa_company。特别注意，如果后边出行权限问题：Permission denied（Publickey),很可能是私钥没有导入ssh-agent中</b>
 
 ## 4、添加新的SSH keys到Git账号的SSH设置中
@@ -44,14 +47,14 @@ $ touch ~/.ssh/config        # 创建config文件
 Host github.com  
 Hostname github.com  
 PreferredAuthentications publickey
-User masktaq  
+User acmwln  
 IdentityFile ~/.ssh/id_rsa_personage
   
 #company account  
 Host github.com  
 Hostname github.com  
 PreferredAuthentications publickey
-User taiaiqiang  
+User wang_ln  
 IdentityFile ~/.ssh/id_rsa_company
 ```
 
@@ -59,21 +62,27 @@ IdentityFile ~/.ssh/id_rsa_company
 连接git命令：
 
 `$ ssh -T git@github.com`
-Hi you user name! You've successfully authenticated, but GitHub does not provide shell access.
+Hi you user name! You've successfully authenticated, but GitHub does not provide shell access.  
+
  上面是github的成功返回语句
 
 ## 7.使用git仓库的时候使用ssh地址：git@github.com:acmwln/timeFormat.git 
 每次都需要输入用户名和密码是因为你采用的是 https 方式提交代码，第一次操作就遇到这个问题，怎么push都需要输入用户名和密码，于是百度得知需要使用ssh协议就不需要; 如果采用的是 ssh 方式只需要在版本库中添加用户的rsa 的key就可以实现提交时无需输入用户名和密码。
 
-- 如果你的版本库已经用https 方式创建好了，那么就需要先删除原来的提交方式。在终端执行以下指令：
+- 如果你的版本库已经用https 方式创建好了，那么就需要先删除原来的提交方式。在终端执行以下指令：  
+
 `$ git remote rm origin`
 `$ git remote add origin git@github.com:(用户名)/版本库名` eg: `git@github.com:acmwln/timeFormat.git`
 
-- 然后这个时候你使用下面指令提交代码：
+- 然后这个时候你使用下面指令提交代码：  
+
 `git push -u origin master`
 
 - 此时系统会提示你没有权限巴拉巴拉的，此时你需要在本地创建自己的SSH KEY
 
 `ssh-keygen -t rsa -C "用户名"`
+
+
+下面附上一个超链接---[git 配置多个SSH-Key](https://blog.csdn.net/dqchouyang/article/details/54898910)
 
 ....同上
