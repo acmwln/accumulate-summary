@@ -89,7 +89,7 @@ Hi you user name! You've successfully authenticated, but GitHub does not provide
 
 下面附上一个超链接---[git 配置多个SSH-Key](https://blog.csdn.net/dqchouyang/article/details/54898910)
 
-tips:我发现每次在github上创建一个新的仓库，就需要重新加入私钥,这个我也不知道为什么，暂时先这样操作吧：（疑惑脸） 
+## 每次在github上创建一个新的仓库，就需要重新加入私钥
 
 1. `$ ssh-add ~/.ssh/id_rsa_personage`
 
