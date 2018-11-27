@@ -55,7 +55,7 @@
 `$ touch ~/.ssh/config  `      # 创建config文件
 配置config文件信息
 ```config
-![config文件](https://img-blog.csdnimg.cn/20181127172702402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FjbV93bG4=,size_16,color_FFFFFF,t_70)
+![config文件] (https://img-blog.csdnimg.cn/20181127172702402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FjbV93bG4=,size_16,color_FFFFFF,t_70)
 # 
 Host github.com  
 Hostname ssh.github.com  
@@ -74,8 +74,8 @@ IdentityFile ~/.ssh/id_rsa_company
  <b>坑就在这个config文件里</b>
 
 - 刚开始我也是网上百度把config文件里的内容拷贝到我自己新创建的config文件里，此时我觉的key配置好了，私钥也加成功了，应该没问题了，于是我开始测试是否已经有github的权限了，执行了
-(https://img-blog.csdnimg.cn/20181127173011195.png)
-- 但是结果不是我想看到的，ssh连不通，我开始百度谷歌问同事，尝试各种方案，还是不可以。但是我又想知道为什么，所以一直尝试一直尝试，包括重新生成ssh key等等，后来看到这篇文章[https://www.jianshu.com/p/83fbb1828453]
+![img] (https://img-blog.csdnimg.cn/20181127173011195.png)
+- 但是结果不是我想看到的，ssh连不通，我开始百度谷歌问同事，尝试各种方案，还是不可以。但是我又想知道为什么，所以一直尝试一直尝试，包括重新生成ssh key等等，后来看到这篇文章https://www.jianshu.com/p/83fbb1828453
 - 又各种尝试：比如在config里加如下内容
 
 ![text](https://img-blog.csdnimg.cn/20181127173345388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FjbV93bG4=,size_16,color_FFFFFF,t_70)
@@ -87,7 +87,7 @@ IdentityFile ~/.ssh/id_rsa_company
 ![img]（https://img-blog.csdnimg.cn/20181127173756555.png）
 
 - 如果箭头处都添加又会出现
-![img](https://img-blog.csdnimg.cn/20181127174244310.png)
+![img] (https://img-blog.csdnimg.cn/20181127174244310.png)
 
 - 又根据这个错误去百度了一把，发现是语法错误，于是又开始到config文件里去检查语法，可是找来找去怎么都找不出来语法问题，就各种试。。。。。。此时脑子中有个念头就是重新格式化（有可能mac的回车和之前从网上拷贝不一样）然后再次试
 
