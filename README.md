@@ -88,7 +88,7 @@ Hi you user name! You've successfully authenticated, but GitHub does not provide
 
 - 刚开始我也是网上百度把config文件里的内容拷贝到我自己新创建的config文件里，此时我觉的key配置好了，私钥也加成功了，应该没问题了，于是我开始测试是否已经有github的权限了，执行了
 ![img](https://img-blog.csdnimg.cn/20181127173011195.png)
-- 但是结果不是我想看到的，ssh连不通，我开始百度谷歌问同事，尝试各种方案，还是不可以。但是我又想知道为什么，所以一直尝试一直尝试，包括重新生成ssh key等等，后来看到这篇文章https://www.jianshu.com/p/83fbb1828453
+- 但是结果不是我想看到的，ssh连不通，我开始百度谷歌，尝试各种方案，还是不可以。但是好奇新又让我去知道为什么，所以各种尝试，包括重新生成ssh key等等，后来看到这篇文章https://www.jianshu.com/p/83fbb1828453
 - 又各种尝试：比如在config里加如下内容
 
 ![text](https://img-blog.csdnimg.cn/20181127173345388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FjbV93bG4=,size_16,color_FFFFFF,t_70)
@@ -102,9 +102,9 @@ Hi you user name! You've successfully authenticated, but GitHub does not provide
 - 如果箭头处都添加又会出现
 ![img](https://img-blog.csdnimg.cn/20181127174244310.png)
 
-- 又根据这个错误去百度了一把，发现是语法错误，于是又开始到config文件里去检查语法，可是找来找去怎么都找不出来语法问题，就各种试。。。。。。此时脑子中有个念头就是重新格式化（有可能mac的回车和之前从网上拷贝不一样）然后再次试
+- 又根据这个错误去google了一把，发现是语法错误，于是又开始到config文件里去检查语法，可是找来找去怎么都找不出来语法问题，就各种试。。。。。。此时有个念头就是重新格式化（有可能mac的回车和之前从网上拷贝不一样）然后再次试
 
-- ssh -T git@github.com，哇塞，竟然成功了！！！简直了，这个错误。。。很难发现啊。希望记录下来以后可以回头翻翻，也提供给像我一样遇到这个坑的人，以免再次走弯路。
+- ssh -T git@github.com，哇塞，成功了！！！这个错误。。。希望记录下来以后可以回头翻翻，也提供给像我一样遇到这个坑的人，以免再次走弯路。
 
 ## 7.使用git仓库的时候使用ssh地址：git@github.com:acmwln/timeFormat.git 
 每次都需要输入用户名和密码是因为你采用的是 https 方式提交代码，第一次操作就遇到这个问题，怎么push都需要输入用户名和密码，于是百度得知需要使用ssh协议就不需要; 如果采用的是 ssh 方式只需要在版本库中添加用户的rsa 的key就可以实现提交时无需输入用户名和密码。
@@ -112,13 +112,13 @@ Hi you user name! You've successfully authenticated, but GitHub does not provide
 - 如果你的版本库已经用https 方式创建好了，那么就需要先删除原来的提交方式。在终端执行以下指令：  
 
 1. `$ git remote rm origin`
-2. `$ git remote add origin git@github.com:(用户名)/版本库名`  eg:`git@github.com:acmwln/timeFormat.git`
+2. `$ git remote add origin https://github.com/:(用户名)/版本库名`  eg:`https://github.com/acmwln/timeFormat.git`
 
 - 然后这个时候你使用下面指令提交代码：  
 
 1.`git push -u origin master`
 
-- 此时系统会提示你没有权限巴拉巴拉的，此时你需要在本地创建自己的SSH KEY
+- 此时系统会提示你没有权限balabala的，此时你需要在本地创建自己的SSH KEY
 
 1.`ssh-keygen -t rsa -C "用户名"`
 
